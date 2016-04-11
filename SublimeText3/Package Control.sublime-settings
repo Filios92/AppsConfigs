@@ -1,0 +1,42 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"All Autocomplete",
+		"Anaconda",
+		"BracketHighlighter",
+		"C Improved",
+		"C++ Starting Kit",
+		"Colorcoder",
+		"Compare Side-By-Side",
+		"CTags",
+		"DoxyDoc",
+		"GitGutter",
+		"GNU Octave Completions",
+		"IndentTips",
+		"Local History",
+		"Markdown Preview",
+		"MarkdownEditing",
+		"Oasis Theme",
+		"Package Control",
+		"Predawn",
+		"Schemr",
+		"Seti_UI",
+		"Seti_UX",
+		"SideBarEnhancements",
+		"Solarized Color Scheme",
+		"SublimeLinter",
+		"SublimeLinter-cppcheck",
+		"Sublimerge Pro",
+		"Text Pastry",
+		"Theme - Flatland",
+		"Themr",
+		"TodoReview",
+		"Tomorrow Color Schemes",
+		"TrailingSpaces"
+	]
+}

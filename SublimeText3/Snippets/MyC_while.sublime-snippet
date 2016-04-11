@@ -1,0 +1,13 @@
+<snippet>
+    <content>
+<![CDATA[
+while ($1)
+{
+	$2
+}
+]]>
+</content>
+    <tabTrigger>while</tabTrigger>
+    <description>C while loop</description>
+    <scope>source.c</scope>
+</snippet>

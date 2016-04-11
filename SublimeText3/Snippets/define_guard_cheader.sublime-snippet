@@ -1,0 +1,12 @@
+<snippet>
+    <content><![CDATA[
+#ifndef ${2:${1/.*/\U$&/}__}
+#define $2
+
+$3
+
+#endif /* ${1:${TM_FILENAME/[\.\s\\\/()\[\]\{\}]+/_/g}} */
+]]></content>
+    <tabTrigger>defineguard</tabTrigger>
+    <scope>source.c++, source.c</scope>
+</snippet>

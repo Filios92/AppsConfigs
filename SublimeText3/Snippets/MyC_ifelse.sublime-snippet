@@ -1,0 +1,17 @@
+<snippet>
+    <content>
+<![CDATA[
+if ($1)
+{
+	${2:/* then that */}
+}
+else
+{
+	${3:/* this */}
+}
+]]>
+</content>
+    <tabTrigger>ifelse</tabTrigger>
+    <description>C ifelse</description>
+    <scope>source.c</scope>
+</snippet>

@@ -1,0 +1,12 @@
+<snippet>
+    <content>
+<![CDATA[
+#if $1
+$2
+#endif /* $1 */
+]]>
+</content>
+    <tabTrigger>preif</tabTrigger>
+    <description>C #if</description>
+    <scope>source.c</scope>
+</snippet>

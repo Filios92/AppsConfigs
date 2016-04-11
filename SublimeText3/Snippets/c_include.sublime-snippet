@@ -1,0 +1,8 @@
+<!-- <snippet>
+	<content><![CDATA[
+#include bla"$1.h"
+]]></content>
+	<tabTrigger>inc</tabTrigger>
+	<scope>source.c, source.c++</scope>
+</snippet>
+ -->
