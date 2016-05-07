@@ -1,3 +1,7 @@
 [
 	{ "keys": ["ctrl+alt+p"], "command": "prompt_select_workspace" },
+	{ "keys": ["ctrl+alt+n"], "command": "insert_snippet", "args": {"contents": "ń"} },
+	{ "keys": ["ctrl+alt+shift+n"], "command": "text_pastry_show_command_line", "args": { "text": "" } },
+	{ "keys": ["ctrl+alt+a"], "command": "insert_snippet", "args": {"contents": "ą"} },
+	{ "keys": ["ctrl+alt+shift+a"], "command": "alignment" }
 ]
