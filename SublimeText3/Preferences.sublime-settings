@@ -10,9 +10,11 @@
 	"Seti_pad_5": false,
 	"Seti_panel_nrml": true,
 	"Seti_tabs_small": true,
+	"always_show_minimap_viewport": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/SublimeLinter/Material Flatland (SL).tmTheme",
+	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Tomorrow.tmTheme",
 	"enable_tab_scrolling": true,
+	"fade_fold_buttons": false,
 	"findreplace_small": true,
 	"flatland_square_tabs": true,
 	"font_size": 9,
@@ -24,7 +26,6 @@
 		"Anaconda",
 		"Colorcoder",
 		"CTags",
-		"GitGutter",
 		"IndentTips",
 		"Solarized Color Scheme",
 		"TrailingSpaces"
@@ -50,5 +51,11 @@
 	"predawn_tabs_small": true,
 	"predawn_transient_tabs_italic": false,
 	"tabs_medium": true,
-	"theme": "Material Flatland.sublime-theme"
+	"theme": "Boxy Tomorrow.sublime-theme",
+	"theme_find_panel_size_xs": true,
+	"theme_icon_button_highlighted": true,
+	"theme_quick_panel_size_xs": true,
+	"theme_size_xs": true,
+	"theme_tab_selected_transparent": true,
+	"theme_tab_selected_underlined": true
 }
