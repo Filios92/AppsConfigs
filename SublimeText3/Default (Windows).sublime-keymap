@@ -3,5 +3,11 @@
 	{ "keys": ["ctrl+alt+n"], "command": "insert_snippet", "args": {"contents": "ń"} },
 	{ "keys": ["ctrl+alt+shift+n"], "command": "text_pastry_show_command_line", "args": { "text": "" } },
 	{ "keys": ["ctrl+alt+a"], "command": "insert_snippet", "args": {"contents": "ą"} },
-	{ "keys": ["ctrl+alt+shift+a"], "command": "alignment" }
+	{ "keys": ["ctrl+alt+shift+a"], "command": "alignment" },
+
+	{ "keys": ["ctrl+l","ctrl+i"],  
+	"context":  [
+		{"key": "selector", "operator": "equal", "operand": "text.tex.latex"}],
+	"command": "insert_snippet", "args": {"name":"Packages/User/Snippets/LatexTODOinline.sublime-snippet"}},
+
 ]
