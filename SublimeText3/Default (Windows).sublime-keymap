@@ -5,9 +5,19 @@
 	{ "keys": ["ctrl+alt+a"], "command": "insert_snippet", "args": {"contents": "ą"} },
 	{ "keys": ["ctrl+alt+shift+a"], "command": "alignment" },
 
+	// latex todo inline
 	{ "keys": ["ctrl+l","ctrl+i"],  
 	"context":  [
 		{"key": "selector", "operator": "equal", "operand": "text.tex.latex"}],
 	"command": "insert_snippet", "args": {"name":"Packages/User/Snippets/LatexTODOinline.sublime-snippet"}},
 
+	// vim navigation in sidebar
+	{ "keys": ["h"], "command": "move", "args": {"by": "characters", "forward": false}, "context":
+	    [ {"key": "control", "operand": "sidebar_tree"} ] },
+	{ "keys": ["j"], "command": "move", "args": {"by": "lines", "forward": true}, "context":
+	    [ {"key": "control", "operand": "sidebar_tree"} ] },
+	{ "keys": ["k"], "command": "move", "args": {"by": "lines", "forward": false}, "context":
+	    [ {"key": "control", "operand": "sidebar_tree"} ] },
+	{ "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+	    [ {"key": "control", "operand": "sidebar_tree"} ] }
 ]
