@@ -9,5 +9,5 @@ while ($1)
 </content>
     <tabTrigger>while</tabTrigger>
     <description>C while loop</description>
-    <scope>source.c</scope>
+    <scope>source.c,source.c++</scope>
 </snippet>
