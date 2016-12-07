@@ -19,5 +19,15 @@
 	{ "keys": ["k"], "command": "move", "args": {"by": "lines", "forward": false}, "context":
 	    [ {"key": "control", "operand": "sidebar_tree"} ] },
 	{ "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
-	    [ {"key": "control", "operand": "sidebar_tree"} ] }
+	    [ {"key": "control", "operand": "sidebar_tree"} ] },
+
+	// vim and tab navigation in quick panels
+	{ "keys": ["alt+k"], "command": "move", "args": {"by": "lines", "forward": false}, "context":
+		[ {"key": "overlay_visible", "operand": "equal", "operand": true} ] },
+	{ "keys": ["alt+j"], "command": "move", "args": {"by": "lines", "forward": true}, "context":
+		[ {"key": "overlay_visible", "operand": "equal", "operand": true} ] },
+	{ "keys": ["shift+tab"], "command": "move", "args": {"by": "lines", "forward": false}, "context":
+		[ {"key": "overlay_visible", "operand": "equal", "operand": true} ] },
+	{ "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true}, "context":
+		[ {"key": "overlay_visible", "operand": "equal", "operand": true} ] },
 ]
