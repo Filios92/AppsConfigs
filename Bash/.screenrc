@@ -4,8 +4,8 @@ hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%
 caption always "%{= gk}[ %{k}%?%-Lw%?%{b}(%{K}%n*%f %t%?(%u)%?%{b})%{w}%?%+Lw%?%? %{b}][test]"
 bindkey "^[Od" prev  # change window with ctrl-left
 bindkey "^[Oc" next  # change window with ctrl-right
-bind j focus down
-bind k focus up
+#bind j focus down
+#bind k focus up
 
 # Arrow keys to switch terminals (only works with X) 
 # Alt + left 
@@ -16,12 +16,18 @@ bindkey ^[[1;3C next
 bindkey ^[j next 
 
 # navigating regions with Ctrl-arrows
-bindkey "^[[1;5D" focus left
-bindkey "^[[1;5C" focus right
+#bindkey "^[[1;5D" focus left
+#bindkey "^[[1;5C" focus right
 bindkey "^k" focus up
 bindkey "^j" focus down
-bindkey "^[[1;5D" focus left
-bindkey "^[[1;5C" focus right
+#bindkey "^[[1;5D" focus left
+#bindkey "^[[1;5C" focus right
 bindkey "^[[1;5A" focus up
 bindkey "^[[1;5B" focus down
 
+vbell off
+
+bind s split
+
+maptimeout 0
+defc1 off
