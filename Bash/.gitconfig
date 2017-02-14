@@ -19,5 +19,27 @@
     tree2 = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
     commits = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
 
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+
+    difff = diff --color-words #just words
+    bbranch = branch -v    
+    branches = branch -avvl
+
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1 => \\2/' | grep -v 'alias' | awk 'BEGIN { FS = \"=>\" }{ printf(\"%-20s=>%s\\n\", $1,$2)}' | sort
+
+    #BASIC REPO INFORMATION
+    whois = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"
+    whatis = show -s --pretty='tformat::%h (%s, %ad)' --date=short
+    howmany = "!sh -c 'git log -a --pretty=oneline | wc -l'"
+    howmanybywhom = shortlog -sn
+
+    #WHAT WAS GOING ON, WHILE YOU WERE AWAY
+    anychanges = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
+    anychangesonmaster = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
+    whoischanging = !sh -c 'git shortlog HEAD..origin/$0'
+    whoischangingmaster = !sh -c 'git shortlog HEAD..origin/master'
 
 

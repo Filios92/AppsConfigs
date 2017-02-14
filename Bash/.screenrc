@@ -7,13 +7,13 @@ bindkey "^[Oc" next  # change window with ctrl-right
 #bind j focus down
 #bind k focus up
 
-# Arrow keys to switch terminals (only works with X) 
-# Alt + left 
-bindkey ^[[1;3D prev 
-bindkey ^[k prev 
-# Alt + right 
-bindkey ^[[1;3C next 
-bindkey ^[j next 
+# Arrow keys to switch terminals (only works with X)
+# Alt + left
+bindkey ^[[1;3D prev
+bindkey ^[k prev
+# Alt + right
+bindkey ^[[1;3C next
+bindkey ^[j next
 
 # navigating regions with Ctrl-arrows
 #bindkey "^[[1;5D" focus left

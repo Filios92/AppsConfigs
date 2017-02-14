@@ -97,8 +97,10 @@ PS1="\[$BWhite\]\A \[$Cyan\]\u@\h\[$BWhite\]:\[$Yellow\]\W \[$Color_Off\]λ "
 
 # Better most used commands
 alias grep="grep --color=auto"
-alias ll="ls -lh --color=auto --group-dir"
+alias ls='ls --color'
+alias ll='ls -lh --color=auto --group-dir'
 #alias vim="vi"
+alias diff="diff --color -y"
 
 
 export NCURSES_NO_UTF8_ACS=1
