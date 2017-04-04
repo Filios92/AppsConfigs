@@ -12,7 +12,7 @@
 	"Seti_tabs_small": true,
 	"always_show_minimap_viewport": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/Theme - Flatland/Flatland Monokai.tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Flatland Monokai (SL).tmTheme",
 	"dictionary": "Packages/Dictionaries/Polish.dic",
 	"enable_tab_scrolling": true,
 	"fade_fold_buttons": false,
@@ -69,5 +69,6 @@
 	"theme_size_xs": true,
 	"theme_tab_selected_transparent": true,
 	"theme_tab_selected_underlined": true,
+	"translate_tabs_to_spaces": true,
 	"vintage_start_in_command_mode": true
 }
