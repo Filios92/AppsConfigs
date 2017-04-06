@@ -31,9 +31,10 @@
 	{ "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true}, "context":
 		[ {"key": "overlay_visible", "operand": "equal", "operand": true} ] },
 
-	// alt+j/k navigation in quick panels
 	{ "keys": ["alt+k"], "command": "move", "args": {"by": "lines", "forward": false}, "context":
 		[ {"key": "auto_complete_visible", "operand": "equal", "operand": true} ] },
 	{ "keys": ["alt+j"], "command": "move", "args": {"by": "lines", "forward": true}, "context":
 		[ {"key": "auto_complete_visible", "operand": "equal", "operand": true} ] },
+
+	{ "keys": ["ctrl+i"], "command": "indent_and_braces" },
 ]
