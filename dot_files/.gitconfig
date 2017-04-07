@@ -42,4 +42,3 @@
     whoischanging = !sh -c 'git shortlog HEAD..origin/$0'
     whoischangingmaster = !sh -c 'git shortlog HEAD..origin/master'
 
-
