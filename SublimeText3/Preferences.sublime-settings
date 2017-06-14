@@ -12,12 +12,17 @@
 	"Seti_tabs_small": true,
 	"always_show_minimap_viewport": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/SublimeLinter/Flatland Monokai (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Hero Dark (SL).tmTheme",
 	"dictionary": "Packages/Dictionaries/Polish.dic",
 	"enable_tab_scrolling": true,
 	"fade_fold_buttons": false,
 	"findreplace_small": true,
 	"flatland_square_tabs": true,
+	"font_face": "Inconsolata",
+	"font_options":
+	[
+		"directwrite"
+	],
 	"font_size": 10,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -26,6 +31,7 @@
 		"CTags",
 		"FindKeyConflicts",
 		"IndentTips",
+		"LaTeXTools",
 		"Solarized Color Scheme",
 		"TrailingSpaces",
 		"YcmdCompletion"
@@ -58,7 +64,7 @@
 	"predawn_transient_tabs_italic": false,
 	"show_encoding": true,
 	"tabs_medium": true,
-	"theme": "Boxy Tomorrow.sublime-theme",
+	"theme": "Hero Dark.sublime-theme",
 	"theme_dirty_accent_orange": true,
 	"theme_find_panel_size_xxs": true,
 	"theme_icon_button_highlighted": true,

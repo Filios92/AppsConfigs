@@ -36,5 +36,9 @@
 	{ "keys": ["alt+j"], "command": "move", "args": {"by": "lines", "forward": true}, "context":
 		[ {"key": "auto_complete_visible", "operand": "equal", "operand": true} ] },
 
+	{ "keys": ["ctrl+k", "ctrl+/"], "command": "fil_plug"},
+	{ "keys": ["ctrl+shift+c"], "command": "get_function_name"},
 	{ "keys": ["ctrl+i"], "command": "indent_and_braces" },
+	{ "keys": ["shift+f12"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+	{ "keys": ["ctrl+shift+r"], "command": "goto_symbol_in_project" },
 ]
