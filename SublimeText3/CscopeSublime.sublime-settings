@@ -1,0 +1,5 @@
+{
+    "executable": "C:\\cygwin64\\bin\\cscope.exe",
+    // "prompt_before_searching": false,
+    "display_outline": true,
+}

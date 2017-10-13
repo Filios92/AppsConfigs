@@ -27,11 +27,13 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Colorcoder",
+		"ActionScript",
 		"CTags",
 		"FindKeyConflicts",
 		"IndentTips",
 		"LaTeXTools",
+		"LiveReload",
+		"Local History",
 		"Solarized Color Scheme",
 		"TrailingSpaces",
 		"YcmdCompletion"

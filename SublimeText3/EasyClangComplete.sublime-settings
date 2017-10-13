@@ -1,0 +1,20 @@
+{
+	"common_flags" : [
+        "-IC:\\Program Files\\LLVM_400\\lib\\clang\\4.0.0\\include",
+        // "-IC:\\Program Files\\LLVM\\lib\\clang\\3.9.1\\include",
+		// "-IC:\\cygwin64\\lib\\clang\\3.9.1\\include",
+        "-I$project_base_path",
+        "-Ic:/mingw/bin/../lib/gcc/mingw32/4.8.1/include/c++",
+        "-Ic:/mingw/bin/../lib/gcc/mingw32/4.8.1/include/c++/mingw32",
+        "-Ic:/mingw/bin/../lib/gcc/mingw32/4.8.1/include/c++/backward",
+        "-Ic:/mingw/bin/../lib/gcc/mingw32/4.8.1/../../../../include",
+        "-Ic:/mingw/bin/../lib/gcc/mingw32/4.8.1/include",
+        "-Ic:/mingw/bin/../lib/gcc/mingw32/4.8.1/include-fixed",
+	],
+    // "clang_binary" : "C:\\Program Files\\LLVM\\bin\\clang.exe",
+    "clang_binary" : "C:\\Program Files\\LLVM_400\\bin\\clang.exe",
+	// "clang_binary" : "C:\\cygwin64\\bin\\clang-3.9.exe",
+    "verbose" : false,
+    "hide_default_completions": true,
+    "use_libclang" : true,
+}

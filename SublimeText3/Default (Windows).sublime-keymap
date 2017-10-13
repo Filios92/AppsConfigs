@@ -41,4 +41,26 @@
 	{ "keys": ["ctrl+i"], "command": "indent_and_braces" },
 	{ "keys": ["shift+f12"], "command": "show_panel", "args": {"panel": "find_in_files"} },
 	{ "keys": ["ctrl+shift+r"], "command": "goto_symbol_in_project" },
+
+	{ "keys": ["ctrl+l", "ctrl+x"], "command": "close_cscope_tabs"},
+	{ "keys": ["ctrl+l", "ctrl+f"], "command": "mine_rebuild_cscope_db"},
+	{ "keys": ["j", "k", "j"], "command": "exit_insert_mode", "context":
+		[
+			{ "key": "setting.command_mode", "operand": false },
+			{ "key": "setting.is_widget", "operand": false }
+		]
+	},
+	{ "keys": ["n"], "command": "exit_visual_mode", "context":
+		[
+			{ "key": "setting.command_mode"},
+			{ "key": "num_selections", "operand": 1},
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": false }
+		]
+	},
+	{ "keys": ["n"], "command": "single_selection", "context":
+        [
+	        { "key": "num_selections", "operator": "not_equal", "operand": 1 },
+	        { "key": "setting.command_mode", "operand": true }
+	    ]
+	}
 ]
