@@ -1,0 +1,369 @@
+{
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "id": "User.moveFocus.F747588A"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": "togglePaneZoom",
+            "id": "User.togglePaneZoom"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "id": "User.moveFocus.6CD791B"
+        },
+        {
+            "command": 
+            {
+                "action": "adjustOpacity",
+                "opacity": 10,
+                "relative": true
+            },
+            "id": "User.adjustOpacity.Increase"
+        },
+        {
+            "command": 
+            {
+                "action": "adjustOpacity",
+                "opacity": -10,
+                "relative": true
+            },
+            "id": "User.adjustOpacity.Decrease"
+        },
+        {
+            "command": 
+            {
+                "action": "sendInput",
+                "input": "\u001b[34~"
+            },
+            "id": "User.sendInput.D56C926E"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "id": "User.moveFocus.2A0DA8E0"
+        },
+        {
+            "command": 
+            {
+                "action": "globalSummon"
+            },
+            "id": "User.MyGlobalSummon"
+        },
+        {
+            "command": 
+            {
+                "action": "sendInput",
+                "input": "\u2660"
+            },
+            "id": "User.sendInput.2BEB7CF8"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "id": "User.moveFocus.87C324ED"
+        }
+    ],
+    "autoHideWindow": false,
+    "centerOnLaunch": true,
+    "compatibility.allowHeadless": true,
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "experimental.enableColorSelection": false,
+    "focusFollowMouse": false,
+    "keybindings": 
+    [
+        {
+            "id": "User.sendInput.2BEB7CF8",
+            "keys": "ctrl+shift+/"
+        },
+        {
+            "id": "User.sendInput.D56C926E",
+            "keys": "ctrl+;"
+        },
+        {
+            "id": "User.moveFocus.F747588A",
+            "keys": "alt+j"
+        },
+        {
+            "id": "User.moveFocus.6CD791B",
+            "keys": "alt+k"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.togglePaneZoom",
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.moveFocus.2A0DA8E0",
+            "keys": "alt+h"
+        },
+        {
+            "id": "User.moveFocus.87C324ED",
+            "keys": "alt+l"
+        },
+        {
+            "id": null,
+            "keys": "alt+enter"
+        },
+        {
+            "id": "User.adjustOpacity.Increase",
+            "keys": "ctrl+shift+plus"
+        },
+        {
+            "id": "User.adjustOpacity.Decrease",
+            "keys": "ctrl+shift+minus"
+        },
+        {
+            "id": null,
+            "keys": "win+sc(41)"
+        },
+        {
+            "id": "User.MyGlobalSummon",
+            "keys": "win+shift+f"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "bellStyle": "none",
+            "closeOnExit": "automatic",
+            "colorScheme": "Oceanic-Next",
+            "cursorShape": "filledBox",
+            "font": 
+            {
+                "face": "JetBrainsMono Nerd Font",
+                "size": 10,
+                "weight": "semi-bold"
+            },
+            "opacity": 90,
+            "padding": "8",
+            "rightClickContextMenu": true,
+            "useAcrylic": true
+        }
+    },
+    "schemes": 
+    [
+        {
+            "background": "#1A1A1A",
+            "black": "#000000",
+            "blue": "#579BD5",
+            "brightBlack": "#797979",
+            "brightBlue": "#9CDCFE",
+            "brightCyan": "#2BC4E2",
+            "brightGreen": "#1AD69C",
+            "brightPurple": "#975EAB",
+            "brightRed": "#EB2A88",
+            "brightWhite": "#EAEAEA",
+            "brightYellow": "#E9AD95",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#00B6D6",
+            "foreground": "#EA549F",
+            "green": "#4EC9B0",
+            "name": "Aurelia",
+            "purple": "#714896",
+            "red": "#E92888",
+            "selectionBackground": "#FFFFFF",
+            "white": "#EAEAEA",
+            "yellow": "#CE9178"
+        },
+        {
+            "background": "#1C0C28",
+            "black": "#0A4C62",
+            "blue": "#90A5BD",
+            "brightBlack": "#201637",
+            "brightBlue": "#39173D",
+            "brightCyan": "#5E6071",
+            "brightGreen": "#0A6C7E",
+            "brightPurple": "#BC94B7",
+            "brightRed": "#C87272",
+            "brightWhite": "#0A6C7E",
+            "brightYellow": "#7A3188",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#7E83CC",
+            "foreground": "#BABAB9",
+            "green": "#5CB1B3",
+            "name": "BlueBerryPie",
+            "purple": "#9D54A7",
+            "red": "#99246E",
+            "selectionBackground": "#FFFFFF",
+            "white": "#F0E8D6",
+            "yellow": "#EAB9A8"
+        },
+        {
+            "background": "#1E2127",
+            "black": "#4A505D",
+            "blue": "#285BFF",
+            "brightBlack": "#61697A",
+            "brightBlue": "#199FFD",
+            "brightCyan": "#50ACAE",
+            "brightGreen": "#37BD58",
+            "brightPurple": "#FC58F6",
+            "brightRed": "#FC4A6D",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#F6BE48",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#366F9A",
+            "foreground": "#ABB2BF",
+            "green": "#23974A",
+            "name": "BlulocoDark",
+            "purple": "#8C62FD",
+            "red": "#F81141",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCD5E5",
+            "yellow": "#FD7E57"
+        },
+        {
+            "background": "#000000",
+            "black": "#0C0C0C",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#3B78FF",
+            "brightCyan": "#61D6D6",
+            "brightGreen": "#16C60C",
+            "brightPurple": "#B4009E",
+            "brightRed": "#E74856",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#F9F1A5",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#13A10E",
+            "name": "Color Scheme 10",
+            "purple": "#881798",
+            "red": "#C50F1F",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#C19C00"
+        },
+        {
+            "background": "#1F1F1F",
+            "black": "#1A1A1A",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#3B78FF",
+            "brightCyan": "#61D6D6",
+            "brightGreen": "#16C60C",
+            "brightPurple": "#B4009E",
+            "brightRed": "#E74856",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#F9F1A5",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#EDEDED",
+            "green": "#16BA10",
+            "name": "Color Scheme 11",
+            "purple": "#881798",
+            "red": "#C50F1F",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#C19C00"
+        },
+        {
+            "background": "#FAFAFA",
+            "black": "#383A42",
+            "blue": "#0184BC",
+            "brightBlack": "#4F525D",
+            "brightBlue": "#61AFEF",
+            "brightCyan": "#56B5C1",
+            "brightGreen": "#7DA164",
+            "brightPurple": "#C577DD",
+            "brightRed": "#DF6C75",
+            "brightWhite": "#C2C2C2",
+            "brightYellow": "#EBC83F",
+            "cursorColor": "#4F525D",
+            "cyan": "#0997B3",
+            "foreground": "#383A42",
+            "green": "#50A14F",
+            "name": "Moj",
+            "purple": "#A626A4",
+            "red": "#E45649",
+            "selectionBackground": "#FFFFFF",
+            "white": "#C7C7C7",
+            "yellow": "#CFC81A"
+        },
+        {
+            "background": "#121B21",
+            "black": "#121C21",
+            "blue": "#5486C0",
+            "brightBlack": "#52606B",
+            "brightBlue": "#5486C0",
+            "brightCyan": "#50A5A4",
+            "brightGreen": "#89BD82",
+            "brightPurple": "#B77EB8",
+            "brightRed": "#E44754",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#F7BD51",
+            "cursorColor": "#B3B8C3",
+            "cyan": "#50A5A4",
+            "foreground": "#B3B8C3",
+            "green": "#89BD82",
+            "name": "Oceanic-Next",
+            "purple": "#B77EB8",
+            "red": "#E44754",
+            "selectionBackground": "#3E4953",
+            "white": "#FFFFFF",
+            "yellow": "#F7BD51"
+        }
+    ],
+    "tabWidthMode": "equal",
+    "theme": "dark",
+    "themes": [],
+    "useAcrylicInTabRow": false
+}
