@@ -190,10 +190,9 @@
             {
                 "face": "JetBrainsMono Nerd Font",
                 "size": 10,
-                "weight": "semi-bold"
             },
+            "intenseTextStyle": "bold",
             "opacity": 90,
-            "padding": "8",
             "rightClickContextMenu": true,
             "useAcrylic": true
         }
