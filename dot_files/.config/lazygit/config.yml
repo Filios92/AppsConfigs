@@ -2,9 +2,13 @@ git:
   autoStageResolvedConflicts: false
   autoFetch: false
   #branchLogCmd: git log --graph --first-parent --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
+  pagers:
+  - pager: delta --dark --paging=never --line-numbers -s
+  - pager: delta --dark --paging=never --line-numbers
 os:
   copyToClipboardCmd: printf "\033]52;c;$(printf {{text}} | base64 -w 0)\a" > /dev/tty
 gui:
+  scrollHeight: 20
   nerdFontsVersion: "3"
   theme:
     selectedLineBgColor:
