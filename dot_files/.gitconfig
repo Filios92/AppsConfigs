@@ -26,6 +26,9 @@
     howmanybywhom = shortlog -sn
 
     um = !sh -c 'mainb=$(git branch -a --list "origin/HEAD" | cut -d"/" -f4) && git fetch && git branch -f $mainb origin/$mainb'
+    ub = "!git checkout -B $1 origin/$1; echo"
+    pushmrlight = !sh -c 'git push -f origin -u $(git symbolic-ref --short HEAD) -o merge_request.create -o merge_request.label=Light'
+    pushmrmedium = !sh -c 'git push -f origin -u $(git symbolic-ref --short HEAD) -o merge_request.create -o merge_request.label=Medium'
 
     #WHAT WAS GOING ON, WHILE YOU WERE AWAY
     anychanges = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
