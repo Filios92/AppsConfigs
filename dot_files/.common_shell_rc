@@ -1,0 +1,27 @@
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+export EDITOR='nvim'
+export JIRA_AUTH_TYPE=bearer
+export NODE_OPTIONS=--use-openssl-ca
+
+if [[ $(uname -r) =~ 'microsoft' ]]; then
+    if [[ "$PWD" == "/mnt/c/Windows/System32" ]]; then
+        cd ~
+    fi
+
+    if command -v wslview > /dev/null 2>&1; then
+        export BROWSER='wslview'
+    fi
+
+    if [[ -n "$ZSH_VERSION" ]]; then
+        keep_current_path() {
+          printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
+        }
+        precmd_functions+=(keep_current_path)
+    else
+        PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND ; "}'printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"'
+    fi
+fi
+

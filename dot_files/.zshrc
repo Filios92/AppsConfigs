@@ -96,7 +96,6 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='nvim'
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -115,13 +114,9 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="$HOME/.local/bin:$PATH"
 
-export JIRA_AUTH_TYPE=bearer
+[ -f ~/.common_shell_rc ] && source ~/.common_shell_rc
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
@@ -131,31 +126,6 @@ bindkey '^[[B' history-search-forward
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.config/fzf-stuff/fzf-config.sh
-
-if [[ $(uname -r) =~ 'microsoft' ]]; then
-    if [[ "$PWD" == "/mnt/c/Windows/System32" ]]; then
-        cd ~
-    fi
-
-    if command -v wslview > /dev/null 2>&1; then
-        export BROWSER='wslview'
-    fi
-
-    keep_current_path() {
-      printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
-    }
-    precmd_functions+=(keep_current_path)
-fi
-
-
-# fnm
-FNM_PATH="/home/osuch/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/osuch/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
-
-export NODE_OPTIONS=--use-openssl-ca
 
 # .zshrc
 fpath+=($HOME/.zsh/pure)# .zshrc
