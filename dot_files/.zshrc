@@ -82,7 +82,7 @@ ZSH_THEME=""
 plugins=(
     git
     zsh-autosuggestions
-    zsh-syntax-highlighting
+    #zsh-syntax-highlighting
     fzf-tab
     # zsh-eza
 )
@@ -127,8 +127,15 @@ bindkey '^[[B' history-search-forward
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.config/fzf-stuff/fzf-config.sh
 
-# .zshrc
+# PURE
 fpath+=($HOME/.zsh/pure)# .zshrc
 autoload -U promptinit; promptinit
 prompt pure
 
+if [[ -n $AI_AGENT$CLAUDECODE$CURSOR_AGENT$GEMINI_CLI$OPENCODE ]]; then
+	zstyle :prompt:pure:git show no
+fi
+
+if [[ -f ~/bin/.zsh-patina/zsh-patina ]]; then
+    eval "$(~/bin/.zsh-patina/zsh-patina activate)"
+fi
