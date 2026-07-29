@@ -87,6 +87,12 @@ plugins=(
     # zsh-eza
 )
 
+if [[ -f ~/bin/.zsh-patina/zsh-patina ]]; then
+    eval "$(~/bin/.zsh-patina/zsh-patina activate)"
+else
+    plugins+=(zsh-syntax-highlighting)
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -117,12 +123,8 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.common_shell_rc ] && source ~/.common_shell_rc
 
-
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.config/fzf-stuff/fzf-config.sh
@@ -136,6 +138,3 @@ if [[ -n $AI_AGENT$CLAUDECODE$CURSOR_AGENT$GEMINI_CLI$OPENCODE ]]; then
 	zstyle :prompt:pure:git show no
 fi
 
-if [[ -f ~/bin/.zsh-patina/zsh-patina ]]; then
-    eval "$(~/bin/.zsh-patina/zsh-patina activate)"
-fi
