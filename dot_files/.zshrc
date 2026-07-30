@@ -89,6 +89,8 @@ plugins=(
 
 if [[ -f ~/bin/.zsh-patina/zsh-patina ]]; then
     eval "$(~/bin/.zsh-patina/zsh-patina activate)"
+elif command -v zsh-patina > /dev/null; then
+    eval "$(zsh-patina activate)"
 else
     plugins+=(zsh-syntax-highlighting)
 fi
