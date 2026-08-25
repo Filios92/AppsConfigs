@@ -15,6 +15,8 @@ if [[ $(uname -r) =~ 'microsoft' ]]; then
         export BROWSER='wslview'
     fi
 
+    alias clip='iconv -f utf8 -t utf16le | clip.exe'
+
     if [[ -n "$ZSH_VERSION" ]]; then
         keep_current_path() {
           printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
