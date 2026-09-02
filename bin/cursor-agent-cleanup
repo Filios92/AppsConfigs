@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+VERSIONS_DIR="${HOME}/.local/share/cursor-agent/versions"
+SYMLINK="${HOME}/.local/bin/cursor-agent"
+
+DRY_RUN=0
+KEEP=0
+
+usage() {
+    cat <<'EOF'
+cursor-agent-cleanup
+
+Deletes old/unused cursor-agent versions, keeping the one currently
+referenced by the symlink at $HOME/.local/bin/cursor-agent.
+
+Usage:
+  cursor-agent-cleanup [options]
+
+Options:
+  -n, --dry-run     Show what would be deleted without deleting.
+  -k, --keep N      Also keep the N most recent versions (by name sort),
+                    in addition to the active one. Default: 0.
+  -h, --help        Show this help.
+EOF
+    exit "${1:-0}"
+}
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -n|--dry-run) DRY_RUN=1; shift ;;
+        -k|--keep)
+            [[ $# -ge 2 ]] || { echo "error: --keep requires a number" >&2; exit 2; }
+            KEEP="$2"; shift 2 ;;
+        -h|--help) usage 0 ;;
+        *) echo "error: unknown argument: $1" >&2; usage 2 ;;
+    esac
+done
+
+[[ "$KEEP" =~ ^[0-9]+$ ]] || { echo "error: --keep must be a non-negative integer" >&2; exit 2; }
+
+if [[ ! -d "$VERSIONS_DIR" ]]; then
+    echo "error: versions directory not found: $VERSIONS_DIR" >&2
+    exit 1
+fi
+
+# Resolve the active version directory from the symlink.
+ACTIVE_VERSION=""
+if [[ -L "$SYMLINK" ]]; then
+    target="$(readlink -f "$SYMLINK" 2>/dev/null || true)"
+    if [[ -n "$target" ]]; then
+        # Walk up from the symlink target until the parent is VERSIONS_DIR.
+        dir="$(dirname "$target")"
+        while [[ "$dir" != "/" && "$dir" != "." ]]; do
+            if [[ "$(dirname "$dir")" == "$VERSIONS_DIR" ]]; then
+                ACTIVE_VERSION="$(basename "$dir")"
+                break
+            fi
+            dir="$(dirname "$dir")"
+        done
+    fi
+fi
+
+if [[ -z "$ACTIVE_VERSION" ]]; then
+    echo "error: could not determine active version from symlink: $SYMLINK" >&2
+    echo "       refusing to delete anything." >&2
+    exit 1
+fi
+
+echo "Active version (kept): $ACTIVE_VERSION"
+
+# Collect all version directories, newest first (reverse name sort).
+mapfile -t ALL_VERSIONS < <(
+    find "$VERSIONS_DIR" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort -r
+)
+
+# Build the keep set: active version + N most recent (excluding active).
+declare -A KEEP_SET=()
+KEEP_SET["$ACTIVE_VERSION"]=1
+
+if [[ "$KEEP" -gt 0 ]]; then
+    kept=0
+    for v in "${ALL_VERSIONS[@]}"; do
+        [[ "$v" == "$ACTIVE_VERSION" ]] && continue
+        KEEP_SET["$v"]=1
+        kept=$((kept + 1))
+        [[ "$kept" -ge "$KEEP" ]] && break
+    done
+fi
+
+deleted=0
+for v in "${ALL_VERSIONS[@]}"; do
+    if [[ -n "${KEEP_SET[$v]:-}" ]]; then
+        echo "keep:   $v"
+        continue
+    fi
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+        echo "would delete: $v"
+    else
+        echo "deleting: $v"
+        rm -rf -- "${VERSIONS_DIR:?}/$v"
+    fi
+    deleted=$((deleted + 1))
+done
+
+if [[ "$deleted" -eq 0 ]]; then
+    echo "Nothing to delete."
+elif [[ "$DRY_RUN" -eq 1 ]]; then
+    echo "Dry run: $deleted version(s) would be deleted."
+else
+    echo "Deleted $deleted version(s)."
+fi

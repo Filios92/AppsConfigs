@@ -30,3 +30,14 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# cd into a directory cursor-agent has been run from (see `cursor-projects`)
+if command -v cursor-projects > /dev/null 2>&1; then
+ccd() {
+    local dir
+    dir="$(cursor-projects pick "$@")" || return
+    [[ -n "$dir" && -d "$dir" ]] && cd "$dir"
+}
+fi
+
+[ -f ~/.common_shell_rc.local ] && source ~/.common_shell_rc.local
+

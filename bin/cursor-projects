@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECTS_DIR="${HOME}/.cursor/projects"
+
+SHOW_ALL=0
+CMD="ls"
+
+usage() {
+    cat <<'EOF'
+cursor-projects
+
+Lists projects/directories cursor-agent has been run from, discovered under
+$HOME/.cursor/projects. Each project stores its real working directory in
+.workspace-trusted ("workspacePath").
+
+Usage:
+  cursor-projects [ls]      List projects (most recently used first).
+  cursor-projects pick      Interactively pick one (fzf), print its path.
+  cursor-projects path      Like pick, but plain (no fzf) numbered prompt.
+
+Options:
+  -a, --all     Include projects without a known workspacePath (ephemeral
+                / tmp sessions), shown by their internal id.
+  -h, --help    Show this help.
+
+Note: to actually change directory, use the shell function `ccd`
+      since a subprocess cannot cd its parent shell.
+EOF
+    exit "${1:-0}"
+}
+
+args=()
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -a|--all) SHOW_ALL=1; shift ;;
+        -h|--help) usage 0 ;;
+        ls|pick|path) CMD="$1"; shift ;;
+        *) echo "error: unknown argument: $1" >&2; usage 2 ;;
+    esac
+done
+# Reset $@ to leftover (non-option) args. The ${args[@]+...} guard avoids an
+# "unbound variable" error under `set -u` when the array is empty.
+set -- "${args[@]+"${args[@]}"}"
+
+[[ -d "$PROJECTS_DIR" ]] || { echo "error: not found: $PROJECTS_DIR" >&2; exit 1; }
+
+# Emit "epoch<TAB>path<TAB>exists(0/1)" for every project, newest first.
+collect() {
+    local d name trusted path mtime exists
+    for d in "$PROJECTS_DIR"/*/; do
+        [[ -d "$d" ]] || continue
+        name="$(basename "$d")"
+        path=""
+        trusted="$d/.workspace-trusted"
+        if [[ -f "$trusted" ]]; then
+            path="$(jq -r '.workspacePath // empty' "$trusted" 2>/dev/null || true)"
+        fi
+        if [[ -z "$path" ]]; then
+            [[ "$SHOW_ALL" -eq 1 ]] || continue
+            path="<$name>"
+        fi
+        # Recency: newest mtime among the dir and its worker.log.
+        mtime="$(stat -c %Y "$d" 2>/dev/null || echo 0)"
+        if [[ -f "$d/worker.log" ]]; then
+            local wm; wm="$(stat -c %Y "$d/worker.log" 2>/dev/null || echo 0)"
+            [[ "$wm" -gt "$mtime" ]] && mtime="$wm"
+        fi
+        exists=0
+        [[ "$path" == /* && -d "$path" ]] && exists=1
+        printf '%s\t%s\t%s\n' "$mtime" "$path" "$exists"
+    done | sort -rn
+}
+
+list_human() {
+    local epoch path exists when mark
+    printf '%-19s  %s\n' "LAST USED" "PATH"
+    while IFS=$'\t' read -r epoch path exists; do
+        when="$(date -d "@$epoch" '+%Y-%m-%d %H:%M:%S' 2>/dev/null || echo '?')"
+        mark=""
+        [[ "$exists" -eq 0 ]] && mark="  (missing)"
+        printf '%-19s  %s%s\n' "$when" "$path" "$mark"
+    done < <(collect)
+}
+
+# Print just the selected path to stdout. UI goes to the terminal.
+pick_fzf() {
+    local sel
+    sel="$(collect | while IFS=$'\t' read -r epoch path exists; do
+                local when; when="$(date -d "@$epoch" '+%Y-%m-%d %H:%M' 2>/dev/null || echo '?')"
+                local mark=""; [[ "$exists" -eq 0 ]] && mark="  (missing)"
+                printf '%s\t%s  %s%s\n' "$path" "$when" "$path" "$mark"
+            done \
+            | fzf --with-nth=2.. --delimiter='\t' \
+                  --prompt='cursor project> ' \
+                  --height=40% --reverse \
+            | cut -f1)" || return 1
+    [[ -n "$sel" ]] || return 1
+    printf '%s\n' "$sel"
+}
+
+pick_plain() {
+    local -a paths=() labels=()
+    local epoch path exists when mark i=0
+    while IFS=$'\t' read -r epoch path exists; do
+        when="$(date -d "@$epoch" '+%Y-%m-%d %H:%M' 2>/dev/null || echo '?')"
+        mark=""; [[ "$exists" -eq 0 ]] && mark=" (missing)"
+        paths+=("$path"); labels+=("$when  $path$mark")
+    done < <(collect)
+    [[ "${#paths[@]}" -gt 0 ]] || { echo "no projects found" >&2; return 1; }
+    for i in "${!labels[@]}"; do
+        printf '%3d) %s\n' "$((i + 1))" "${labels[$i]}" >&2
+    done
+    local choice
+    printf 'select project number: ' >&2
+    read -r choice
+    [[ "$choice" =~ ^[0-9]+$ ]] && (( choice >= 1 && choice <= ${#paths[@]} )) \
+        || { echo "invalid selection" >&2; return 1; }
+    printf '%s\n' "${paths[$((choice - 1))]}"
+}
+
+case "$CMD" in
+    ls)   list_human ;;
+    pick) if command -v fzf >/dev/null 2>&1; then pick_fzf; else pick_plain; fi ;;
+    path) pick_plain ;;
+esac
