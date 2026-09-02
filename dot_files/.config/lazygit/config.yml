@@ -25,3 +25,12 @@ customCommands:
     command: 'git submodule update -- {{.SelectedFile.Name}}'
     context: 'files'
     description: 'Update submodule'
+  - key: "<c-p>"
+    context: "files"
+    prompts:
+      - type: "input"
+        title: "Nazwa docelowej gałęzi w Gerrit (np. main, master):"
+        key: "Branch"
+    command: "git push origin HEAD:refs/for/{{.Form.Branch}}"
+    description: "Push do Gerrit (refs/for/)"
+    output: terminal
