@@ -11,6 +11,10 @@ gui:
   scrollHeight: 20
   nerdFontsVersion: "3"
   commitHashLength: 4
+  sidePanelWidth: 0.25
+  shrinkSidePanelsToContent: false
+  # expandFocusedSidePanel: true
+  enlargedSideViewLocation: top
   theme:
     selectedLineBgColor:
       - '#2f402f'
