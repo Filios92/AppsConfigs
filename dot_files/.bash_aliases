@@ -25,3 +25,25 @@ cdd() {
   mkdir "$1" && cd "$1";
 }
 
+if command -v yazi > /dev/null 2>&1; then
+function y() {
+	local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+	command rm -f -- "$tmp"
+}
+fi
+
+function install-local() {
+    if test -f "$1"; then
+        local p=$(readlink -f "$1")
+        local b="${2:-$(basename $p)}"
+        ln -sf "$p" "$HOME/.local/bin/$b"
+        echo "Symlinked $p in ~/.local/bin/$b"
+    else
+        echo "Bad path $1"
+        exit 1
+    fi
+}
+
